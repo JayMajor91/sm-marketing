@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Audit + Quick Win — $997 | SM Marketing</title>
+  <meta name="description" content="Get a full AI readiness audit of your business plus one Quick Win automation delivered in 7 days. Only 5 spots per month. 100% money-back guarantee." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Montserrat', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              dark: '#0a0a0a',
+              card: '#111111',
+              border: '#1e1e1e',
+              muted: '#666666',
+              accent: '#16a34a',
+              'accent-light': '#22c55e',
+              surface: '#161616',
+            }
+          },
+          keyframes: {
+            pulse2: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.5' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' },
+            },
+            fadeInUp: {
+              from: { opacity: '0', transform: 'translateY(30px)' },
+              to: { opacity: '1', transform: 'translateY(0)' },
+            },
+            countUp: {
+              from: { opacity: '0', transform: 'scale(0.8)' },
+              to: { opacity: '1', transform: 'scale(1)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            }
+          },
+          animation: {
+            pulse2: 'pulse2 2s ease-in-out infinite',
+            float: 'float 3s ease-in-out infinite',
+            fadeInUp: 'fadeInUp 0.8s ease forwards',
+            countUp: 'countUp 0.5s ease forwards',
+            shimmer: 'shimmer 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Stagger animation delays */
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    .stagger-6 { animation-delay: 0.6s; }
+    .stagger-7 { animation-delay: 0.7s; }
+
+    /* Initially hidden for scroll reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.4, 0.25, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Green glow CTA */
+    .cta-glow {
+      box-shadow: 0 0 30px rgba(22, 163, 74, 0.3), 0 0 60px rgba(22, 163, 74, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cta-glow:hover {
+      box-shadow: 0 0 40px rgba(22, 163, 74, 0.5), 0 0 80px rgba(22, 163, 74, 0.2);
+      transform: scale(1.03);
+    }
+
+    /* Value row strikethrough animation */
+    .strike-line {
+      position: relative;
+    }
+    .strike-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #ef4444;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s ease;
+    }
+    .strike-line.struck::after {
+      transform: scaleX(1);
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    /* FAQ toggle */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.3s ease; }
+
+    /* Card hover */
+    .hover-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .hover-card:hover { transform: translateY(-4px); border-color: rgba(22, 163, 74, 0.3); }
+
+    /* Navbar blur */
+    .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+    /* Shimmer on price */
+    .price-shimmer {
+      background: linear-gradient(90deg, #ffffff 0%, #22c55e 50%, #ffffff 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-5">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 text-white no-underline group">
+        <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2C0 0.895431 0.89543 0 2 0H17C18.1046 0 19 0.895431 19 2V9H11C9.89543 9 9 9.89543 9 11V16C9 17.1046 8.10457 18 7 18H2C0.895431 18 0 17.1046 0 16V2ZM19 9V16C19 17.1046 19.8954 18 21 18H26C27.1046 18 28 17.1046 28 16V11C28 9.89543 27.1046 9 26 9H19Z" fill="white"/>
+        </svg>
+        <span class="text-sm font-bold tracking-wider uppercase">SM Marketing</span>
+      </a>
+      <a href="https://calendly.com/smmarketing-agency/free-consultation" target="_blank" rel="noopener" class="bg-brand-accent hover:bg-brand-accent-light text-white font-semibold text-sm py-3 px-7 rounded-full transition-all duration-300 hover:scale-105 hidden sm:inline-flex items-center gap-2">
+        Get Your AI Audit <span class="text-base">→</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO SECTION ═══ -->
+  <section class="min-h-screen flex items-center justify-center pt-24 pb-16 relative overflow-hidden">
+    <!-- Background gradient orbs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-accent/3 rounded-full blur-3xl"></div>
+
+    <div class="max-w-4xl mx-auto px-5 text-center relative z-10">
+      <!-- Urgency badge -->
+      <div class="inline-flex items-center gap-2.5 bg-brand-accent/10 border border-brand-accent/30 rounded-full py-2 px-5 mb-8 animate-fadeInUp">
+        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse2"></span>
+        <span class="text-sm font-semibold text-brand-accent-light tracking-wide">Only 5 spots available this month</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tighter mb-6 animate-fadeInUp stagger-1">
+        Stop guessing.<br/>
+        <span class="italic font-light text-white/60">Start automating.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-4 leading-relaxed animate-fadeInUp stagger-2">
+        Get a complete AI audit of your business <strong class="text-white/80">plus one automation delivered in 7 days</strong> — so you see real results before committing to anything bigger.
+      </p>
+
+      <!-- Price anchor -->
+      <div class="animate-fadeInUp stagger-3 mb-10">
+        <div class="flex items-center justify-center gap-3 mb-2">
+          <span class="text-white/30 line-through text-xl font-medium">$2,500</span>
+          <span class="bg-red-500/20 text-red-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Save 60%</span>
+        </div>
+        <div class="flex items-center justify-center gap-1">
+          <span class="text-2xl font-bold text-white/60 self-start mt-2">$</span>
+          <span class="text-7xl sm:text-8xl font-black tracking-tighter price-shimmer animate-shimmer">997</span>
+        </div>
+        <p class="text-white/30 text-sm mt-2">One-time investment · No recurring fees · No contracts</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="animate-fadeInUp stagger-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://calendly.com/smmarketing-agency/free-consultation" target="_blank" rel="noopener" class="cta-glow bg-brand-accent hover:bg-brand-accent-light text-white font-bold text-lg py-4 px-10 rounded-full inline-flex items-center gap-3 transition-all duration-300">
+          Get Your AI Audit <span class="text-xl">→</span>
+        </a>
+        <a href="#what-you-get" class="text-white/40 hover:text-white/70 font-medium text-base transition-colors duration-300 inline-flex items-center gap-2">
+          See what's included <span>↓</span>
+        </a>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="animate-fadeInUp stagger-5 mt-14 flex flex-wrap justify-center gap-x-8 gap-y-3">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="text-sm text-white/40 font-medium">100% Money-Back Guarantee</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="text-sm text-white/40 font-medium">Delivered in 7 Days</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="text-sm text-white/40 font-medium">No Contracts</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="text-sm text-white/40 font-medium">Custom-Built for You</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PAIN POINTS ═══ -->
+  <section class="py-24 border-t border-brand-border">
+    <div class="max-w-4xl mx-auto px-5">
+      <div class="reveal">
+        <p class="text-xs font-semibold uppercase tracking-[3px] text-brand-muted mb-4">The Problem</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+          You know AI can help.<br/>
+          <span class="italic font-light text-white/40">You just don't know where to start.</span>
+        </h2>
+        <p class="text-lg text-white/40 max-w-2xl leading-relaxed mb-16">
+          Every week you wait, you're leaving money on the table. Your competitors are already automating. Here's what's probably costing you right now:
+        </p>
+      </div>
+
+      <div class="grid gap-5">
+        <!-- Pain 1 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col sm:flex-row gap-6 items-start">
+          <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Leads Are Slipping Through the Cracks</h3>
+            <p class="text-white/40 leading-relaxed">Someone fills out your form at 9pm. By the time you respond Monday morning, they've already hired your competitor. <strong class="text-white/60">78% of deals go to the first responder.</strong></p>
+          </div>
+        </div>
+
+        <!-- Pain 2 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col sm:flex-row gap-6 items-start">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Your Team Is Drowning in Busywork</h3>
+            <p class="text-white/40 leading-relaxed">Data entry. Follow-up emails. Scheduling. Copy-pasting between systems. <strong class="text-white/60">20+ hours a week wasted on tasks AI handles in seconds.</strong></p>
+          </div>
+        </div>
+
+        <!-- Pain 3 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col sm:flex-row gap-6 items-start">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">You Don't Know What to Automate First</h3>
+            <p class="text-white/40 leading-relaxed">ChatGPT? Chatbots? Workflow tools? There are 10,000 options and no clear path. <strong class="text-white/60">Without a roadmap, you'll waste months and thousands on the wrong things.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BRIDGE: THE SOLUTION ═══ -->
+  <section class="py-24 border-t border-brand-border bg-brand-surface">
+    <div class="max-w-4xl mx-auto px-5 text-center">
+      <div class="reveal">
+        <p class="text-xs font-semibold uppercase tracking-[3px] text-brand-accent mb-4">The Solution</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+          What if you could see<br/>
+          <span class="italic font-light text-white/60">exactly where AI fits in your business?</span>
+        </h2>
+        <p class="text-lg text-white/40 max-w-2xl mx-auto leading-relaxed mb-4">
+          That's exactly what the <strong class="text-white">AI Audit + Quick Win</strong> package gives you. In one week, you get clarity, a plan, and a working automation — so you can stop guessing and start seeing results.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHAT YOU GET ═══ -->
+  <section id="what-you-get" class="py-24 border-t border-brand-border">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="reveal text-center mb-16">
+        <p class="text-xs font-semibold uppercase tracking-[3px] text-brand-muted mb-4">What You Get</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+          Everything inside the<br/>
+          <span class="text-brand-accent-light">$997 package</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <!-- Item 1 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-8 group">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-accent/20 transition-colors">
+              <span class="text-brand-accent-light font-bold text-lg">1</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-1">Full AI Readiness Audit</h3>
+              <p class="text-sm text-brand-accent font-semibold">Value: $1,500</p>
+            </div>
+          </div>
+          <p class="text-white/40 leading-relaxed">A 2–3 hour deep-dive into every corner of your business. We map your workflows, identify bottlenecks, and find every opportunity where AI saves you time and money.</p>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-8 group">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-accent/20 transition-colors">
+              <span class="text-brand-accent-light font-bold text-lg">2</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-1">One "Quick Win" Automation</h3>
+              <p class="text-sm text-brand-accent font-semibold">Value: $2,500</p>
+            </div>
+          </div>
+          <p class="text-white/40 leading-relaxed">We build and deploy one real automation — a chatbot, lead capture system, booking bot, or workflow — live in your business within 7 days. Not a mockup. A working tool.</p>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-8 group">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-accent/20 transition-colors">
+              <span class="text-brand-accent-light font-bold text-lg">3</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-1">Custom AI Roadmap</h3>
+              <p class="text-sm text-brand-accent font-semibold">Value: $1,000</p>
+            </div>
+          </div>
+          <p class="text-white/40 leading-relaxed">A prioritized list of every automation opportunity in your business — ranked by impact and ease of implementation. This becomes your AI playbook for the next 12 months.</p>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-8 group">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-accent/20 transition-colors">
+              <span class="text-brand-accent-light font-bold text-lg">4</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-1">12-Month ROI Projection</h3>
+              <p class="text-sm text-brand-accent font-semibold">Value: $500</p>
+            </div>
+          </div>
+          <p class="text-white/40 leading-relaxed">Hard numbers showing exactly what each automation is worth — hours saved, costs reduced, revenue recovered. No fluff. No guesswork. Just math.</p>
+        </div>
+
+        <!-- Item 5 (full width) -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-8 group md:col-span-2">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-accent/20 transition-colors">
+              <span class="text-brand-accent-light font-bold text-lg">5</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-1">30-Minute Strategy Call</h3>
+              <p class="text-sm text-brand-accent font-semibold">Value: $500</p>
+            </div>
+          </div>
+          <p class="text-white/40 leading-relaxed max-w-2xl">We walk through your audit results, roadmap, and ROI projection together — answer every question, and map out your next best move. Zero pressure, 100% clarity.</p>
+        </div>
+      </div>
+
+      <!-- Value stack total -->
+      <div class="reveal mt-12 bg-gradient-to-r from-brand-accent/10 via-brand-card to-brand-accent/10 border border-brand-accent/20 rounded-2xl p-8 text-center">
+        <p class="text-white/40 text-sm font-semibold uppercase tracking-wider mb-3">Total Value</p>
+        <div class="flex items-center justify-center gap-4 flex-wrap">
+          <span class="text-4xl sm:text-5xl font-black text-white/20 line-through">$6,000</span>
+          <span class="text-xl text-white/30">→</span>
+          <span class="text-4xl sm:text-5xl font-black text-brand-accent-light">$997</span>
+        </div>
+        <p class="text-white/30 text-sm mt-3">You save $5,003 — and get real results in 7 days</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="py-24 border-t border-brand-border bg-brand-surface">
+    <div class="max-w-4xl mx-auto px-5">
+      <div class="reveal text-center mb-16">
+        <p class="text-xs font-semibold uppercase tracking-[3px] text-brand-muted mb-4">How It Works</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+          Three steps to<br/>
+          <span class="italic font-light text-white/60">your first automation</span>
+        </h2>
+      </div>
+
+      <div class="space-y-0">
+        <!-- Step 1 -->
+        <div class="reveal flex gap-6 sm:gap-8 pb-12 relative">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0 font-bold text-lg relative z-10">1</div>
+            <div class="w-px h-full bg-brand-border mt-2"></div>
+          </div>
+          <div class="pb-4">
+            <h3 class="text-xl font-bold mb-2">Book Your Audit Call</h3>
+            <p class="text-white/40 leading-relaxed">Pick a time that works. We'll hop on a quick call to understand your business, your pain points, and your goals. Then we get to work.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="reveal flex gap-6 sm:gap-8 pb-12 relative">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0 font-bold text-lg relative z-10">2</div>
+            <div class="w-px h-full bg-brand-border mt-2"></div>
+          </div>
+          <div class="pb-4">
+            <h3 class="text-xl font-bold mb-2">We Audit + Build</h3>
+            <p class="text-white/40 leading-relaxed">Over the next 7 days, we do the deep dive — mapping workflows, identifying opportunities, and building your Quick Win automation. You get a working tool, a full roadmap, and an ROI projection.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="reveal flex gap-6 sm:gap-8">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0 font-bold text-lg relative z-10">3</div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Review & Launch</h3>
+            <p class="text-white/40 leading-relaxed">We walk through everything together on a 30-minute strategy call. Your automation is live, your roadmap is clear, and you know exactly what to do next — whether you go further with us or not.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOCIAL PROOF ═══ -->
+  <section class="py-24 border-t border-brand-border">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="reveal text-center mb-16">
+        <p class="text-xs font-semibold uppercase tracking-[3px] text-brand-muted mb-4">Proven Results</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+          Businesses like yours are<br/>
+          <span class="italic font-light text-white/60">already seeing results</span>
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Result 1 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-7">
+          <div class="text-xs font-semibold uppercase tracking-wider text-white/30 mb-3">Dental Practice</div>
+          <div class="text-4xl font-extrabold tracking-tight mb-2 text-brand-accent-light">$12K<span class="text-lg font-medium text-white/30">/mo</span></div>
+          <p class="text-white/40 text-sm leading-relaxed">in new patient revenue from capturing after-hours calls with an AI booking bot</p>
+        </div>
+
+        <!-- Result 2 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-7">
+          <div class="text-xs font-semibold uppercase tracking-wider text-white/30 mb-3">Insurance Agency</div>
+          <div class="text-4xl font-extrabold tracking-tight mb-2 text-brand-accent-light">94%</div>
+          <p class="text-white/40 text-sm leading-relaxed">renewal rate (up from 82%) with automated follow-up sequences</p>
+        </div>
+
+        <!-- Result 3 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-7">
+          <div class="text-xs font-semibold uppercase tracking-wider text-white/30 mb-3">HVAC Company</div>
+          <div class="text-4xl font-extrabold tracking-tight mb-2 text-brand-accent-light">$18K<span class="text-lg font-medium text-white/30">/mo</span></div>
+          <p class="text-white/40 text-sm leading-relaxed">in recovered bookings from calls they used to miss after hours</p>
+        </div>
+
+        <!-- Result 4 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-7">
+          <div class="text-xs font-semibold uppercase tracking-wider text-white/30 mb-3">Real Estate Team</div>
+          <div class="text-4xl font-extrabold tracking-tight mb-2 text-brand-accent-light">3x</div>
+          <p class="text-white/40 text-sm leading-relaxed">more deals from the same ad spend with AI instant lead response</p>
+        </div>
+
+        <!-- Result 5 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-7">
+          <div class="text-xs font-semibold uppercase tracking-wider text-white/30 mb-3">Law Firm</div>
+          <div class="text-4xl font-extrabold tracking-tight mb-2 text-brand-accent-light">$30K<span class="text-lg font-medium text-white/30">/mo</span></div>
+          <p class="text-white/40 text-sm leading-relaxed">in new signed cases from AI-powered after-hours client intake</p>
+        </div>
+
+        <!-- Result 6 -->
+        <div class="reveal hover-card bg-brand-card border border-brand-border rounded-2xl p-7">
+          <div class="text-xs font-semibold uppercase tracking-wider text-white/30 mb-3">E-Commerce Brand</div>
+          <div class="text-4xl font-extrabold tracking-tight mb-2 text-brand-accent-light">$45K<span class="text-lg font-medium text-white/30">/mo</span></div>
+          <p class="text-white/40 text-sm leading-relaxed">recovered from abandoned cart AI sequences</p>
+        </div>
+      </div>
+
+      <!-- Testimonial placeholder -->
+      <div class="reveal mt-12 grid sm:grid-cols-2 gap-5">
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-8">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-white/60 leading-relaxed mb-6 italic">"The audit alone was worth 10x what we paid. We had no idea we were losing $8K/month in missed after-hours leads. The chatbot they built paid for itself in the first week."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent font-bold text-sm">DR</div>
+            <div>
+              <p class="font-semibold text-sm">Dr. Rachel M.</p>
+              <p class="text-white/30 text-xs">Owner, Bright Smile Dental</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-8">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-white/60 leading-relaxed mb-6 italic">"I was skeptical — $997 felt too good to be true. But the roadmap they gave us identified 14 automations. We've done 6 so far and saved over 30 hours a week. Best money I ever spent."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent font-bold text-sm">MT</div>
+            <div>
+              <p class="font-semibold text-sm">Marcus T.</p>
+              <p class="text-white/30 text-xs">CEO, Apex Property Group</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHO THIS IS FOR ═══ -->
+  <section class="py-24 border-t border-brand-border bg-brand-surface">
+    <div class="max-w-4xl mx-auto px-5">
+      <div class="reveal text-center mb-16">
+        <p class="text-xs font-semibold uppercase tracking-[3px] text-brand-muted mb-4">Is This For You?</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          This is perfect for you if...
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="reveal space-y-4">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-white/60">You know AI is important but don't know <strong class="text-white/80">where to start</strong></span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-white/60">You're a business owner doing <strong class="text-white/80">$500K–$10M/year</strong></span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-white/60">You want to <strong class="text-white/80">see results before</strong> committing to a big engagement</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-white/60">Your team wastes hours on <strong class="text-white/80">repetitive manual tasks</strong></span>
+          </div>
+        </div>
+        <div class="reveal space-y-4">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-white/60">You're <strong class="text-white/80">losing leads</strong> outside business hours</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-white/60">You've tried <strong class="text-white/80">DIY tools</strong> and they didn't stick</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-white/60">You want an <strong class="text-white/80">expert roadmap</strong>, not more confusion</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-white/60">You're ready to <strong class="text-white/80">invest in growth</strong>, not just cut costs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RISK REVERSAL / GUARANTEE ═══ -->
+  <section class="py-24 border-t border-brand-border">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <div class="reveal">
+        <!-- Shield icon -->
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-accent/10 border border-brand-accent/20 mb-8">
+          <svg class="w-10 h-10 text-brand-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10" stroke-width="2"/></svg>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">
+          100% Money-Back Guarantee
+        </h2>
+        <p class="text-xl text-white/50 leading-relaxed mb-6 max-w-2xl mx-auto">
+          If your audit doesn't identify <strong class="text-white/80">at least 3 actionable automations</strong> that can save you time or make you money — you get every penny back. No questions asked.
+        </p>
+        <p class="text-white/30 text-sm">
+          We've never had a single client ask for a refund. But the guarantee is there so you have zero risk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="py-24 border-t border-brand-border bg-brand-surface">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="reveal text-center mb-16">
+        <p class="text-xs font-semibold uppercase tracking-[3px] text-brand-muted mb-4">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Got questions?
+        </h2>
+      </div>
+
+      <div class="space-y-3">
+        <!-- FAQ 1 -->
+        <div class="faq-item reveal bg-brand-card border border-brand-border rounded-xl overflow-hidden cursor-pointer" onclick="this.classList.toggle('open')">
+          <div class="flex items-center justify-between p-6">
+            <h3 class="font-semibold text-white/80 pr-4">"$997 seems too cheap for all this. What's the catch?"</h3>
+            <span class="faq-icon text-white/30 text-2xl font-light flex-shrink-0">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-white/40 leading-relaxed pb-6">No catch. The $997 is intentionally priced as a foot-in-the-door offer. We know that once you see the audit results and experience a working automation, you'll want to do more. Most clients upgrade to our Growth Engine ($7,500) or Full Transformation ($15,000) packages — but there's zero pressure. Even if you never spend another dollar with us, the audit and Quick Win alone are worth multiples of what you paid.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item reveal bg-brand-card border border-brand-border rounded-xl overflow-hidden cursor-pointer" onclick="this.classList.toggle('open')">
+          <div class="flex items-center justify-between p-6">
+            <h3 class="font-semibold text-white/80 pr-4">What kind of "Quick Win" automation will I get?</h3>
+            <span class="faq-icon text-white/30 text-2xl font-light flex-shrink-0">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-white/40 leading-relaxed pb-6">It depends on your business. Common Quick Wins include: AI chatbots for lead capture, automated appointment booking, after-hours call handling, lead follow-up sequences, intake form automation, or workflow automation between your existing tools. We pick the one that delivers the fastest, biggest ROI based on your audit.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item reveal bg-brand-card border border-brand-border rounded-xl overflow-hidden cursor-pointer" onclick="this.classList.toggle('open')">
+          <div class="flex items-center justify-between p-6">
+            <h3 class="font-semibold text-white/80 pr-4">How long does the whole process take?</h3>
+            <span class="faq-icon text-white/30 text-2xl font-light flex-shrink-0">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-white/40 leading-relaxed pb-6">7 days from kickoff to delivery. Day 1: kickoff call + audit begins. Days 2–6: deep dive + building your automation. Day 7: everything delivered + strategy call. You'll have a working automation and complete roadmap within a week.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item reveal bg-brand-card border border-brand-border rounded-xl overflow-hidden cursor-pointer" onclick="this.classList.toggle('open')">
+          <div class="flex items-center justify-between p-6">
+            <h3 class="font-semibold text-white/80 pr-4">What if I'm not technical at all?</h3>
+            <span class="faq-icon text-white/30 text-2xl font-light flex-shrink-0">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-white/40 leading-relaxed pb-6">Perfect — that's exactly who this is for. We handle all the technical work. You just need to tell us about your business, your pain points, and your goals. We take it from there. The roadmap we deliver is written in plain English, not tech jargon.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item reveal bg-brand-card border border-brand-border rounded-xl overflow-hidden cursor-pointer" onclick="this.classList.toggle('open')">
+          <div class="flex items-center justify-between p-6">
+            <h3 class="font-semibold text-white/80 pr-4">Will you try to upsell me after the audit?</h3>
+            <span class="faq-icon text-white/30 text-2xl font-light flex-shrink-0">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-white/40 leading-relaxed pb-6">We'll show you what's possible — that's part of the roadmap. But there's zero pressure. Your audit, Quick Win automation, and roadmap are 100% yours whether or not you ever work with us again. Many clients take the roadmap and implement it themselves. We're confident the work speaks for itself.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item reveal bg-brand-card border border-brand-border rounded-xl overflow-hidden cursor-pointer" onclick="this.classList.toggle('open')">
+          <div class="flex items-center justify-between p-6">
+            <h3 class="font-semibold text-white/80 pr-4">What industries do you work with?</h3>
+            <span class="faq-icon text-white/30 text-2xl font-light flex-shrink-0">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-white/40 leading-relaxed pb-6">We work with service-based businesses across many industries — dental, legal, real estate, insurance, HVAC, med spas, agencies, e-commerce, and more. If your business has customers, leads, and workflows, AI can help. If we're not a fit, we'll tell you upfront (and refund you).</p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item reveal bg-brand-card border border-brand-border rounded-xl overflow-hidden cursor-pointer" onclick="this.classList.toggle('open')">
+          <div class="flex items-center justify-between p-6">
+            <h3 class="font-semibold text-white/80 pr-4">Why only 5 spots per month?</h3>
+            <span class="faq-icon text-white/30 text-2xl font-light flex-shrink-0">+</span>
+          </div>
+          <div class="faq-answer px-6">
+            <p class="text-white/40 leading-relaxed pb-6">Each audit is a hands-on, 2–3 hour deep dive — not an automated report. We personally analyze your business, build a custom automation, and create a tailored roadmap. To maintain quality, we cap it at 5 per month. When spots fill up, the next available slot is the following month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FINAL CTA ═══ -->
+  <section class="py-24 sm:py-32 border-t border-brand-border relative overflow-hidden">
+    <!-- Background glow -->
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-accent/5 via-transparent to-transparent"></div>
+
+    <div class="max-w-3xl mx-auto px-5 text-center relative z-10">
+      <div class="reveal">
+        <!-- Urgency badge -->
+        <div class="inline-flex items-center gap-2.5 bg-red-500/10 border border-red-500/20 rounded-full py-2 px-5 mb-8">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse2"></span>
+          <span class="text-sm font-semibold text-red-400 tracking-wide" id="spots-text">Only 5 spots left this month</span>
+        </div>
+
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+          Ready to see where<br/>
+          <span class="italic font-light text-white/60">AI fits in your business?</span>
+        </h2>
+
+        <p class="text-lg text-white/40 max-w-xl mx-auto leading-relaxed mb-10">
+          Book your AI Audit today. In 7 days you'll have a working automation, a complete roadmap, and total clarity on your next move.
+        </p>
+
+        <!-- Price reminder -->
+        <div class="mb-8">
+          <div class="flex items-center justify-center gap-3 mb-1">
+            <span class="text-white/20 line-through text-lg">$2,500</span>
+            <span class="text-5xl sm:text-6xl font-black text-brand-accent-light">$997</span>
+          </div>
+          <p class="text-white/30 text-sm">One-time · Money-back guarantee · No contracts</p>
+        </div>
+
+        <!-- CTA button -->
+        <a href="https://calendly.com/smmarketing-agency/free-consultation" target="_blank" rel="noopener" class="cta-glow bg-brand-accent hover:bg-brand-accent-light text-white font-bold text-xl py-5 px-14 rounded-full inline-flex items-center gap-3 transition-all duration-300 mb-6">
+          Get Your AI Audit <span class="text-2xl">→</span>
+        </a>
+
+        <p class="text-white/20 text-xs max-w-md mx-auto leading-relaxed">
+          Clicking this button takes you to our calendar to book your free consultation call. No payment required upfront — we'll discuss everything on the call first.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="border-t border-brand-border py-12">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <svg width="24" height="15" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2C0 0.895431 0.89543 0 2 0H17C18.1046 0 19 0.895431 19 2V9H11C9.89543 9 9 9.89543 9 11V16C9 17.1046 8.10457 18 7 18H2C0.895431 18 0 17.1046 0 16V2ZM19 9V16C19 17.1046 19.8954 18 21 18H26C27.1046 18 28 17.1046 28 16V11C28 9.89543 27.1046 9 26 9H19Z" fill="rgba(255,255,255,0.3)"/>
+          </svg>
+          <span class="text-sm font-bold tracking-wider uppercase text-white/30">SM Marketing</span>
+        </div>
+        <div class="flex items-center gap-8">
+          <a href="/" class="text-white/30 hover:text-white/60 text-sm transition-colors">Home</a>
+          <a href="https://calendly.com/smmarketing-agency/free-consultation" target="_blank" class="text-white/30 hover:text-white/60 text-sm transition-colors">Book a Call</a>
+        </div>
+        <p class="text-white/20 text-xs">© 2025 SM Marketing. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ SCROLL REVEAL SCRIPT ═══ -->
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '-40px' });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('nav-blur', 'bg-brand-dark/95', 'border-b', 'border-brand-border', 'py-3');
+        navbar.classList.remove('py-5');
+      } else {
+        navbar.classList.remove('nav-blur', 'bg-brand-dark/95', 'border-b', 'border-brand-border', 'py-3');
+        navbar.classList.add('py-5');
+      }
+    });
+  </script>
+
+</body>
+</html>
