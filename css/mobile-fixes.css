@@ -12,12 +12,23 @@
 /* Prevent horizontal scroll caused by 100vw elements not accounting for scrollbar */
 html, body {
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Safety net: ensure all images respect their containers */
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* Prevent any element from causing horizontal overflow */
+*, *::before, *::after {
+  max-width: 100vw;
+}
+
+/* Exclude specific elements that need to be wider */
+.w-nav-overlay, .menu-navbar.w-nav-menu {
+  max-width: none;
 }
 
 /* Fix 100vw elements that cause horizontal scrollbar */
@@ -44,8 +55,16 @@ img {
    ========================================================================== */
 
 @media screen and (max-width: 991px) {
-  /* FIX: Mobile hamburger menu — inline styles in index.html forced display:flex !important
-     which prevented the Webflow hamburger collapse. Override it here. */
+  /* ======= NAVBAR / HAMBURGER MENU FIXES ======= */
+  
+  /* Reset component-navbar to let Webflow control mobile layout */
+  .component-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Hide desktop nav links — let Webflow hamburger take over */
   .navbar .menu-navbar.w-nav-menu {
     display: none !important;
   }
@@ -56,15 +75,16 @@ img {
     flex-direction: column;
     align-items: center;
     gap: 0;
+    width: 100%;
   }
 
-  /* Ensure hamburger button is visible */
+  /* Ensure hamburger button is visible and properly styled */
   .menu-navbar-button,
   .menu-navbar-button.black-mobile {
     display: flex !important;
   }
 
-  /* Hide the desktop "Get started" button, show mobile nav content */
+  /* Hide the desktop "Get started" button on mobile */
   .right-navbar-content {
     display: none !important;
   }
@@ -75,9 +95,42 @@ img {
     color: #FBFBFB !important;
   }
 
+  /* Nav links inside mobile menu — stack vertically, full width */
+  .navbar .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  /* ======= HEADING FIXES ======= */
+  
   /* FIX: heading-1 was 28rem (Webflow export bug) - should be ~2.8rem */
   .heading-1 {
     font-size: 2.8rem !important;
+  }
+
+  /* Hero heading — 11vw is ok at tablet, but prevent overflow */
+  .home-hero-heading {
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* ======= LAYOUT OVERFLOW PREVENTION ======= */
+
+  /* CTA images — prevent overflow on smaller screens */
+  .cta-images-wrap {
+    overflow: hidden;
+  }
+
+  .cta-image {
+    max-width: 40%;
+  }
+
+  /* Three.js dotted surface — reduce opacity on tablet, hide on mobile */
+  #dotted-surface {
+    opacity: 0.3 !important;
   }
 
   .heading-2 {
@@ -182,9 +235,29 @@ img {
   }
 
   /* Keep highlight-wrapper visible on tablet if it contains important content */
-  /* It was set to display:none — allow it on 767px but hide on phone */
   .highlight-wrapper {
     display: inline-flex;
+  }
+
+  /* Hero heading — ensure it wraps on smaller tablets */
+  .home-hero-heading {
+    font-size: 3.5rem;
+    white-space: normal !important;
+    word-wrap: break-word;
+  }
+
+  .home-hero-heading.letter-spacing-minus-6 {
+    letter-spacing: -0.2rem;
+  }
+
+  /* Hide Three.js on smaller screens — performance + unnecessary */
+  #dotted-surface {
+    display: none !important;
+  }
+
+  /* CTA images — hide on smaller screens to prevent overflow */
+  .cta-images-wrap {
+    display: none;
   }
 
   /* Services component - stack vertically */
@@ -290,15 +363,42 @@ img {
     font-size: 1.1rem;
   }
 
-  /* Home hero heading */
+  /* Home hero heading — fit on phone screens */
   .home-hero-heading {
-    font-size: 2.2rem;
-    white-space: normal;
+    font-size: 2.2rem !important;
+    white-space: normal !important;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .home-hero-heading.letter-spacing-minus-6 {
-    letter-spacing: -0.1rem;
+    letter-spacing: -0.05rem;
+  }
+
+  /* Home hero — ensure it fits viewport */
+  .home-hero {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+
+  .full-size-hero {
+    min-height: auto;
+    max-height: none;
+  }
+
+  /* Hide Three.js canvas on phone */
+  #dotted-surface {
+    display: none !important;
+  }
+
+  /* CTA images hidden on mobile */
+  .cta-images-wrap {
+    display: none !important;
+  }
+
+  /* Sticky gradient shouldn't block content */
+  .sticky-gradient {
+    display: none;
   }
 
   .text-block {

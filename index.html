@@ -134,32 +134,13 @@
       background-color: #1A1A1A !important;
       position: sticky !important;
       top: 0;
-    }
-    .navbar .nav-link {
-      display: inline-block;
-      padding: 0.5rem 1rem;
+      z-index: 9999;
     }
     .navbar .nav-link .text-size-regular {
       color: #FBFBFB;
     }
     .navbar .nav-link:hover .text-size-regular {
       color: #ED5145;
-    }
-    .navbar .component-navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    @media screen and (min-width: 992px) {
-      .navbar .menu-navbar.w-nav-menu {
-        display: flex !important;
-        align-items: center;
-        gap: 0.25rem;
-      }
-    }
-    .navbar .right-navbar-content {
-      display: flex;
-      align-items: center;
     }
     .navbar .navbar-button {
       background-color: #ED5145;
@@ -172,6 +153,27 @@
     .navbar .navbar-button .text-size-medium,
     .navbar .navbar-button .button-navbar-text-color {
       color: #FFFFFF;
+    }
+    /* Desktop only — don't override Webflow's mobile hamburger behavior */
+    @media screen and (min-width: 992px) {
+      .navbar .component-navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .navbar .nav-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+      }
+      .navbar .menu-navbar.w-nav-menu {
+        display: flex !important;
+        align-items: center;
+        gap: 0.25rem;
+      }
+      .navbar .right-navbar-content {
+        display: flex;
+        align-items: center;
+      }
     }
   </style>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
