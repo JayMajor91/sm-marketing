@@ -150,10 +150,12 @@
       align-items: center;
       justify-content: space-between;
     }
-    .navbar .menu-navbar.w-nav-menu {
-      display: flex !important;
-      align-items: center;
-      gap: 0.25rem;
+    @media screen and (min-width: 992px) {
+      .navbar .menu-navbar.w-nav-menu {
+        display: flex !important;
+        align-items: center;
+        gap: 0.25rem;
+      }
     }
     .navbar .right-navbar-content {
       display: flex;

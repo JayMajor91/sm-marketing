@@ -44,6 +44,37 @@ img {
    ========================================================================== */
 
 @media screen and (max-width: 991px) {
+  /* FIX: Mobile hamburger menu — inline styles in index.html forced display:flex !important
+     which prevented the Webflow hamburger collapse. Override it here. */
+  .navbar .menu-navbar.w-nav-menu {
+    display: none !important;
+  }
+
+  /* When hamburger is open (Webflow adds w--open class) */
+  .navbar .menu-navbar.w-nav-menu.w--open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* Ensure hamburger button is visible */
+  .menu-navbar-button,
+  .menu-navbar-button.black-mobile {
+    display: flex !important;
+  }
+
+  /* Hide the desktop "Get started" button, show mobile nav content */
+  .right-navbar-content {
+    display: none !important;
+  }
+
+  /* Menu icon color for dark navbar */
+  .menu-icon-navbar,
+  .menu-icon-navbar.black-mobile {
+    color: #FBFBFB !important;
+  }
+
   /* FIX: heading-1 was 28rem (Webflow export bug) - should be ~2.8rem */
   .heading-1 {
     font-size: 2.8rem !important;
