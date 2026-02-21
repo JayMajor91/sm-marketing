@@ -1,0 +1,569 @@
+/* ==========================================================================
+   SM Marketing - Mobile Optimization Overrides
+   Created: 2026-02-21
+   Purpose: Fix mobile responsiveness issues from Webflow export
+   Note: Do NOT edit the main Webflow CSS. All mobile fixes go here.
+   ========================================================================== */
+
+/* ==========================================================================
+   GLOBAL FIXES - All Viewports
+   ========================================================================== */
+
+/* Prevent horizontal scroll caused by 100vw elements not accounting for scrollbar */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Safety net: ensure all images respect their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix 100vw elements that cause horizontal scrollbar */
+.utility-page-wrap {
+  width: 100%;
+}
+
+.works-sticky-link {
+  width: 100%;
+  min-width: 100%;
+}
+
+/* Fix .button-4 absolute positioning - it should not use giant pixel values */
+.button-4 {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   TABLET BREAKPOINT - max-width: 991px
+   ========================================================================== */
+
+@media screen and (max-width: 991px) {
+  /* FIX: heading-1 was 28rem (Webflow export bug) - should be ~2.8rem */
+  .heading-1 {
+    font-size: 2.8rem !important;
+  }
+
+  .heading-2 {
+    font-size: 2.4rem;
+  }
+
+  .heading-3 {
+    font-size: 2rem;
+  }
+
+  .heading-4 {
+    font-size: 1.8rem;
+  }
+
+  .heading-5 {
+    font-size: 1.6rem;
+  }
+
+  /* Ensure home hero heading scales properly */
+  .home-hero-heading {
+    font-size: 5rem;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .text-block {
+    font-size: 3rem;
+  }
+
+  /* Fix button-4 at tablet */
+  .button-4 {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+  /* Ensure services sticky wrapper is visible */
+  .services-sticky-wrapper {
+    z-index: 1;
+  }
+
+  /* Touch-friendly tap targets */
+  a, button, .button, [role="button"],
+  .nav-link, .main-button-navbar {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE LANDSCAPE BREAKPOINT - max-width: 767px
+   ========================================================================== */
+
+@media screen and (max-width: 767px) {
+  .heading-1 {
+    font-size: 2.2rem !important;
+  }
+
+  .heading-2 {
+    font-size: 2rem;
+  }
+
+  .heading-3 {
+    font-size: 1.8rem;
+  }
+
+  .heading-4 {
+    font-size: 1.5rem;
+  }
+
+  .heading-5 {
+    font-size: 1.3rem;
+  }
+
+  .heading-homepage {
+    font-size: 2rem;
+  }
+
+  .home-hero-heading {
+    font-size: 3rem;
+    white-space: normal;
+  }
+
+  .text-block {
+    font-size: 2rem;
+  }
+
+  .text-size-xdisplay {
+    font-size: 2rem;
+  }
+
+  .text-size-xxdisplay {
+    font-size: 1.6rem;
+  }
+
+  .text-size-display {
+    font-size: 1.6rem;
+  }
+
+  .text-size-display-vw {
+    font-size: 2rem;
+  }
+
+  /* Keep highlight-wrapper visible on tablet if it contains important content */
+  /* It was set to display:none — allow it on 767px but hide on phone */
+  .highlight-wrapper {
+    display: inline-flex;
+  }
+
+  /* Services component - stack vertically */
+  .services-component {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .services-card {
+    width: 100%;
+  }
+
+  .services-image-wrapper {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Fix team cards stacking */
+  .team-cards-collection-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ensure parallax items don't overflow */
+  .parallax-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Blog cards stack */
+  .blog-cards-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pricing cards stack */
+  .pricing-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Fix button-4 */
+  .button-4 {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+  }
+
+  /* Fix services sticky wrapper z-index */
+  .services-sticky-wrapper {
+    z-index: 1;
+    margin-top: 0;
+  }
+
+  /* Ensure work cards are properly sized */
+  .work-small-card-item {
+    height: 60vh;
+  }
+
+  /* Fix heading sizes that were still too large */
+  .heading-4-vw {
+    font-size: 2rem;
+  }
+
+  .features-heading-size {
+    font-size: 2rem;
+  }
+
+  /* Footer improvements */
+  .footer-right {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA text wrap fix */
+  .cta-text-wrap {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   MOBILE PORTRAIT BREAKPOINT - max-width: 479px
+   ========================================================================== */
+
+@media screen and (max-width: 479px) {
+  /* FIX: heading-1 was 5rem at 479px — way too big for phones */
+  .heading-1 {
+    font-size: 2rem !important;
+  }
+
+  /* FIX: heading-2 was 4rem at 479px — too big for phones */
+  .heading-2 {
+    font-size: 1.8rem !important;
+  }
+
+  .heading-3 {
+    font-size: 1.5rem;
+  }
+
+  .heading-4 {
+    font-size: 1.3rem;
+  }
+
+  .heading-5 {
+    font-size: 1.1rem;
+  }
+
+  /* Home hero heading */
+  .home-hero-heading {
+    font-size: 2.2rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .home-hero-heading.letter-spacing-minus-6 {
+    letter-spacing: -0.1rem;
+  }
+
+  .text-block {
+    font-size: 1.6rem;
+  }
+
+  /* Display text sizes - scale down for mobile */
+  .text-size-xdisplay {
+    font-size: 1.5rem;
+  }
+
+  .text-size-xxdisplay {
+    font-size: 1.3rem;
+  }
+
+  .text-size-display {
+    font-size: 1.3rem;
+  }
+
+  .text-size-display-vw {
+    font-size: 1.5rem;
+  }
+
+  .text-size-xhuge {
+    font-size: 1.3rem;
+  }
+
+  .text-size-xxhuge {
+    font-size: 1.3rem;
+  }
+
+  .text-size-xxlarge {
+    font-size: 1.2rem;
+  }
+
+  .text-size-huge {
+    font-size: 1.2rem;
+  }
+
+  .text-size-huge-vw {
+    font-size: 1.2rem;
+  }
+
+  .heading-homepage {
+    font-size: 1.8rem;
+  }
+
+  .heading-4-vw {
+    font-size: 1.5rem;
+  }
+
+  .features-heading-size {
+    font-size: 1.6rem;
+  }
+
+  .team-text-style {
+    font-size: 1.4rem;
+  }
+
+  /* FIX: button-4 had top: 8342.2px — clearly wrong */
+  .button-4 {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+  }
+
+  /* FIX: services-sticky-wrapper had z-index: -10 which hides content */
+  .services-sticky-wrapper {
+    z-index: 1;
+    margin-top: -2rem;
+  }
+
+  /* Services text */
+  .services-text {
+    font-size: 3vh;
+  }
+
+  /* Hide highlight wrapper on small phones (likely intentional for complex layout) */
+  .highlight-wrapper {
+    display: none;
+  }
+
+  /* Ensure service cards are full width and stack properly */
+  .services-component {
+    flex-direction: column;
+    align-items: stretch;
+    display: flex;
+  }
+
+  .services-card {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .services-image-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .services-content {
+    text-align: left;
+  }
+
+  /* Parallax component - single column on mobile */
+  .parallax-component {
+    grid-template-columns: 1fr;
+  }
+
+  .parallax-card {
+    flex-direction: column;
+  }
+
+  /* Work cards */
+  .work-small-card-item {
+    height: 50vh;
+  }
+
+  .work-small-card-list {
+    flex-direction: column;
+  }
+
+  /* Blog cards */
+  .blog-cards-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pricing cards stack */
+  .pricing-card-grid {
+    flex-direction: column;
+  }
+
+  /* Team cards */
+  .team-cards-collection-list {
+    grid-template-columns: 1fr;
+  }
+
+  .team-image {
+    height: 40vw;
+  }
+
+  .team-member-image {
+    height: 40vh;
+  }
+
+  /* Container padding adjustments */
+  .container {
+    max-width: 100%;
+  }
+
+  .container.large {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Footer */
+  .footer-right {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* CTA section */
+  .cta-text-wrap {
+    max-width: 100%;
+  }
+
+  .cta-image.is-first {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  /* Nav/hamburger improvements */
+  .main-button-navbar.button-hero.mobile {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Testimonials slider */
+  .testimonial-slider-secondary {
+    width: 100%;
+    height: auto;
+    min-height: 20rem;
+  }
+
+  .slider-component {
+    width: 100%;
+  }
+
+  /* Hero sticky component - make it flow naturally on mobile */
+  .hero-stidky-component {
+    flex-direction: column;
+    position: static;
+    height: auto;
+  }
+
+  /* Sticky images - full width on mobile */
+  .sticky-images,
+  .sticky-images.left,
+  .sticky-images.middle,
+  .sticky-images.right {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 40vw;
+    position: relative;
+    left: auto;
+    right: auto;
+  }
+
+  /* Hero about wrapper */
+  .hero-about-wrapper {
+    width: 100%;
+  }
+
+  /* Rich text adjustments */
+  .rich-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .rich-text h3 {
+    font-size: 1.1rem;
+  }
+
+  .rich-text h4 {
+    font-size: 1rem;
+  }
+
+  /* Ensure all links and buttons are touch-friendly */
+  a, button, .button, [role="button"],
+  .nav-link, .main-button-navbar,
+  .w-nav-link {
+    min-height: 44px;
+  }
+
+  /* Prevent any fixed/absolute elements from causing overflow */
+  .polygon {
+    display: none;
+  }
+
+  /* Works sticky link - prevent overflow */
+  .works-sticky-link {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  /* About hero */
+  .about-hero-interaction {
+    height: auto;
+  }
+
+  /* Grid header */
+  .grid-header-component {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-heading {
+    max-width: 100%;
+  }
+
+  /* Left content padding fix */
+  .left-content {
+    padding: 2rem 1rem;
+  }
+
+  /* Culture title */
+  .culture-text-size {
+    font-size: 1.1rem;
+  }
+
+  /* Logo grid - 2 columns on mobile */
+  .logo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .logos-grid-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Dropdown mobile fix */
+  .dropdown-mobile {
+    position: static;
+  }
+
+  /* Banner wrapper */
+  .banner-wrapper {
+    padding: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}
